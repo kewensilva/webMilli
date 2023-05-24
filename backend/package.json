@@ -1,11 +1,11 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./src/server/index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon ./src/server/index.js",
-    "db": "nodemon ./src/database/index.js"
+    "start": "node ./src/server/index.js",
+    "db": "node ./src/database/connect.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
