@@ -2,7 +2,7 @@
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Products', {
       id: {
         allowNull: false,
@@ -26,14 +26,13 @@ module.exports = {
         type: Sequelize.STRING
       },
       img: {
-        type: Sequelize.BLOB
+        type: Sequelize.BLOB('long')
       },
       last_update_price: {
         type: Sequelize.DATE
       },
       id_category: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         references: {
           model: 'Categories',
           key: 'id'
@@ -41,7 +40,6 @@ module.exports = {
       },
       id_group_age: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         references: {
           model: 'age_groups',
           key: 'id'
@@ -58,7 +56,7 @@ module.exports = {
     });
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     /**
      * Add reverting commands here.
      *

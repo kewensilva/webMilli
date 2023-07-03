@@ -1,26 +1,23 @@
-const model = require("../../models/");
+const AgeGroup = require('../../models/AgeGroup');
 
 const { Op } = require("sequelize");
 
-const controllerAge = {}
+module.exports = {
 
+    async getAll(req, res) {
 
-controllerAge.getAll = async function (req, res) {
-    try {
-        const ageData = await model.AgeGroup.findAll();
+        const ageData = await AgeGroup.findAll();
         if (ageData.length > 0) {
             res.status(200).json({ message: "Connection Successful", data: ageData });
         }
         else {
             res.status(200).json({ message: "Connection Failed", data: [] });
         }
-    } catch (error) {
         res.status(400).json({ message: error });
     }
-}
-controllerAge.getAge = async function (req, res) {
-    try {
-        const ageData = await model.Categories.findAll({
+    ,
+    async getAge(req, res) {
+        const ageData = await Categories.findAll({
             where: {
                 product_name: { [Op.like]: `%${req.params.age_group_name}%` }
             },
@@ -32,13 +29,10 @@ controllerAge.getAge = async function (req, res) {
             res.status(200).json({ data: [] })
         }
 
-    } catch (error) {
         res.status(404).json({ message: error });
-    }
-}
-controllerAge.createAgeGroup = async function (req, res) {
-    try {
-        await model.AgeGroup.create({
+    },
+    async createAgeGroup(req, res) {
+        await AgeGroup.create({
             age_group_name: req.body.age_group_name,
             description: req.body.description,
             createdAt: new Date(),
@@ -53,16 +47,13 @@ controllerAge.createAgeGroup = async function (req, res) {
                 }
             })
         })
-    } catch (error) {
-        res.status(404).json({ error })
-    }
-}
-controllerAge.delete = async function (req, res) {
-    try {
-        await model.AgeGroup.findAll({ where: { id: req.params.id } })
+        res.status(404).json({ message: Error })
+    },
+    async delete(req, res) {
+        await AgeGroup.findAll({ where: { id: req.params.id } })
             .then(async (result) => {
                 if (result.length > 0) {
-                    await model.AgeGroup.destroy({ where: { id: req.params.id } });
+                    await AgeGroup.destroy({ where: { id: req.params.id } });
                     res.status(200).json({ message: "Delete Product Successful" });
 
                 }
@@ -70,16 +61,13 @@ controllerAge.delete = async function (req, res) {
                     res.tstaus(404).json({ message: "id não encontrado!" });
                 }
             })
-    } catch (error) {
         res.status(404).json({ message: erro })
-    }
-}
-controllerAge.edit = async function (req, res) {
-    try {
-        await model.AgeGroup.findAll({ where: { id: req.params.id } })
+    },
+    async edit(req, res) {
+        await AgeGroup.findAll({ where: { id: req.params.id } })
             .then(async (result) => {
                 if (result.length > 0) {
-                    await model.AgeGroup.update({
+                    await AgeGroup.update({
                         age_group_name: req.body.age_group_name,
                         description: req.body.description,
                         createdAt: new Date(),
@@ -98,9 +86,6 @@ controllerAge.edit = async function (req, res) {
                     res.status(500).json({ message: "Update failed" })
                 }
             })
-    } catch (error) {
         res.status(404).json({ message: Error })
     }
 }
-
-module.exports = controllerAge;

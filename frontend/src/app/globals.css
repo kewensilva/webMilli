@@ -1,6 +1,9 @@
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
+  --logo-color: #fff;
+  --bg-header: #C4007A;
+  --text-dark: #737380;
 
   * {
     box-sizing: border-box;
