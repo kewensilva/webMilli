@@ -17,7 +17,7 @@ const TagHeader = styled.header`
 display: flex;
 align-items: center;
 justify-content: space-between;
-padding: 20px 160px;
+padding: 26px 200px;
 background-color: var(--bg-header);
 border-radius: 8px;
 `;
