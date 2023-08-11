@@ -1,12 +1,12 @@
-import { ProductsFetchResponse } from "@/types/products-response";
-import { useQuery } from "@tanstack/react-query";
-import axios, { AxiosPromise } from "axios";
-import { useEffect, useState } from "react";
+import { ProductsFetchResponse } from "../types/products-response";
 
-const API_URL = process.env.REACT_APP_LINK_API as string;
+import { useQuery } from "@tanstack/react-query";
+
+import axios, { AxiosPromise } from "axios";
+
 
 const fetcher = (): AxiosPromise<ProductsFetchResponse> => {
-  return axios.get(API_URL)
+  return axios.get("http://localhost:3333/products")
 }
 
 export function useProducts() {
@@ -15,10 +15,8 @@ export function useProducts() {
     queryKey: ['products']
   })
 
-  const url = 'http://localhost:3333/files/';
-
+  const url = 'http://localhost:3333/files/'
   return {
     data: { data, url }
-
   }
 }

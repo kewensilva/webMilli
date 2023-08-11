@@ -1,27 +1,17 @@
 "use client"
 import { styled } from "styled-components";
 
-import { Saira_Stencil_One } from "next/font/google";
-import { HeaderMedias } from "./header-medias";
-import { PrimaryInput, PrimaryInputSearchIcon } from "./primary-input";
+// import { PrimaryInput, PrimaryInputSearchIcon } from "./primary-input";
 
-import { LogoIcon } from "./logo";
+import { LogoIcon } from "../../assets/logo";
 
-const sairaStencil = Saira_Stencil_One({
-    weight: ['400'],
-    subsets: ['latin']  
-})
-
-interface HeaderProps {
-
-}
 
 const TagHeader = styled.header`
 display: flex;
 align-items: center;
 justify-content: space-between;
 background-color: var(--bg-header);
-border-radius: 8px;
+border-radius: 8px ;
 padding: 12px 24px;
 
 > div {
@@ -48,13 +38,13 @@ font-size: 24px;
 
 `;
 
-export default function Header(props: HeaderProps) {
+export default function Header() {
     return (
         <TagHeader>
-            <Logo className={sairaStencil.className}>
+             <Logo href="#" >
                 <LogoIcon />
-            </Logo>
-            <HeaderMedias />
+            </Logo> 
+            {/* <HeaderMedias /> */}
             {/* <div>
                 <PrimaryInputSearchIcon placeholder="Buscar Produtos" />
             </div> */}

@@ -13,7 +13,7 @@ margin-top: 32px;
 `;
 
 export function ProductsList() {
-  const { data, } = useProducts();
+  const  {data} = useProducts();
   return (
 
     <ListContainer>

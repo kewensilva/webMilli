@@ -1,20 +1,17 @@
-import { useFilter } from "@/hooks/useFilter";
-import { FilterTypeEnum } from "@/types/filter-type";
+import { useFilter } from "../../hooks/useFilter";
+import { FilterTypeEnum } from "../../types/filter-type";
 import { styled } from "styled-components";
 
-interface FilterItemProps {
+interface FilterItemProps{
   selected: boolean
 }
 
-interface FilterBarProps {
-
-}
-
 const FilterList = styled.ul`
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+
 `
 
 const FilterItem = styled.li<FilterItemProps>`
@@ -31,13 +28,8 @@ const FilterItem = styled.li<FilterItemProps>`
   border-bottom: ${props => props.selected ? '6px solid var(--bg-header)' : ''};
 
   list-style: none;
-`;
-
-interface FilterTypeProps {
-
-}
-
-export function FilterType(props: FilterTypeProps) {
+`
+export function FilterType(){
   const { type, setType } = useFilter();
   const handleType = (value: FilterTypeEnum) => {
     setType(value);

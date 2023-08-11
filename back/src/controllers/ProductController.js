@@ -12,6 +12,13 @@ module.exports = {
   async index(req, res) {
     const product = await Product.findAll()
 
-    return res.json({ product, url: 'http://localhost:3333/files/'})
+    return res.json({ product, url: 'http://localhost:3333/files/' })
   },
+  async delete(req, res) {
+    const { id } = req.params
+
+    const product = await Product.destroy(id);
+
+    return res.json({ product });
+  }
 }
