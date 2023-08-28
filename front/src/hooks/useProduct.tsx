@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import axios, { AxiosPromise } from "axios";
 import { ProductFetchResponse } from "../types/products-response";
-
+    
 const fetcher = (id: number): AxiosPromise<ProductFetchResponse> => {
     return axios.get(import.meta.env.VITE_URL_PROD + `${id}`, {
     })

@@ -4,6 +4,7 @@ import { BackBtn } from "../components/Button/button"
 import { useProduct } from "../hooks/useProduct"
 import Header from "../components/Header/header"
 import Footer from "../components/Footer/footer"
+import { useLocation } from "react-router-dom"
 
 interface ProductProps {
 
@@ -72,10 +73,13 @@ section {
     }
 }
 `
+
 export default function Product(id: number) {
 
     const { data, urlimg } = useProduct(id);
-    console.log(data);  
+    console.log(data);
+    const location = useLocation()
+    console.log(location.search);
 
     return (
         <>

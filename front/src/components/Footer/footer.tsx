@@ -7,7 +7,8 @@ import { LogoFacebook } from "../../assets/logoFacebook";
 
 const TagFooter = styled.footer`
 background-color: var(--bg-header);
-margin-top: 80vh;
+ margin-top: 80vh;
+ position: relative;
 border-radius: 8px ;
 bottom: 0px;
 color: #FFF;
