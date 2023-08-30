@@ -28,11 +28,11 @@ background-color: var(--bg-header);
 flex-direction: column;
 `;
 
-const FooterColumns = styled.section`
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  `
+// const FooterColumns = styled.section`
+//   list-style-type: none;
+//   padding: 0;
+//   margin: 0;
+//   `
 const FooterTop = styled.section`
 display: flex;
 align-items: center;
@@ -59,6 +59,19 @@ const FooterLogo = styled.a`
     height: 60px;
   }
 `
+const FooterBottom = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    font-size: 24px;
+  }
+`
 export default function Footer() {
   return (
     <TagFooter>
@@ -78,10 +91,10 @@ export default function Footer() {
               <LogoInstagram />
             </a>
           </FooterLinks>
-          <FooterColumns>
-
-          </FooterColumns>
         </FooterTop>
+        <FooterBottom>
+          <span>&copy; 2023 - Milli Sapatilhas - CNPJ - 35.295.937/0001-16 </span>
+        </FooterBottom>
       </ContainerFooter>
     </TagFooter>
   )

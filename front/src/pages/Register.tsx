@@ -41,23 +41,23 @@ export default function Register() {
             <Header />
             <Container>
                 <div className="form">
-                    <label> </label>
-                    <input type="text" placeholder="" />
+                    <label>SKU </label>
+                    <input type="text" placeholder="SKU" />
+                    <p> campo obrigatório</p>
+                </div>
+                <div className="form">
+                    <label>código referência </label>
+                    <input type="text" placeholder="código referência" />
+                    <p> campo obrigatório</p>
+                </div>
+                <div className="form">
+                    <label> nome </label>
+                    <input type="text" placeholder="nome" />
                     <p> campo obrigatório</p>
                 </div>
                 <div className="form">
                     <label> </label>
-                    <input type="text" placeholder="" />
-                    <p> campo obrigatório</p>
-                </div>
-                <div className="form">
-                    <label> </label>
-                    <input type="text" placeholder="" />
-                    <p> campo obrigatório</p>
-                </div>
-                <div className="form">
-                    <label> </label>
-                    <input type="text" placeholder="" />
+                    <textarea name="" id="" cols="10" rows="5"/>
                     <p> campo obrigatório</p>
                 </div>
                 <div className="form">
