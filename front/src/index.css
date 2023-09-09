@@ -3,7 +3,11 @@
   --border-radius: 12px;
   --logo-color: #fff;
   --bg-header: #C4007A;
+  --bg-primary: #F0F0F5;
   --text-dark: #737380;
+  --text-dark2: #41414D;
+  --dark: #09090A;
+
 
   * {
     box-sizing: border-box;

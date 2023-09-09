@@ -4,11 +4,7 @@ import { BackBtn } from "../components/Button/button"
 import { useProduct } from "../hooks/useProduct"
 import Header from "../components/Header/header"
 import Footer from "../components/Footer/footer"
-import { useLocation } from "react-router-dom"
-
-interface ProductProps {
-
-}
+import { formatValue } from "../utils/formatPrice"
 
 const Container = styled.div`
 display: flex;
@@ -24,8 +20,7 @@ section {
     margin-top: 24px;
     img {
         max-width: 640px;
-        width: 50%;
-
+        width: 70%;
     }
     div {
         display: flex;
@@ -37,33 +32,33 @@ section {
         font-weight: 400;
         font-size: 16px;
         line-height: 150%;
-        color: #d1d1d1;
+        color: var(--dark);
 
     }
     h2 {
         font-weight: 300;
         font-size: 32px;
         line-height: 150%;
-        color: #d1d1d1;
+        color: var(--dark);
         margin-top:12px;
     }
     span:nth-of-type(2){
         font-weight: 600;
         font-size: 20px;
-        color: #d1d1d1;
+        color: var(--dark);
         margin-bottom: 24px;
     }
     p {
         font-weight: 300;
         font-size:32px;
         line-height: 150%;
-        color: #d1d1d1;
+        color: var(--dark);
         
     }
     div {
         h3 {
             text-transform: uppercase;
-            color: #d1d1d1;
+            color: var(--dark);
             font-weight: 500;
             font-size: 16px;
         }
@@ -74,13 +69,9 @@ section {
 }
 `
 
-export default function Product(id: number) {
-
+export default function Product(id) {
     const { data, urlimg } = useProduct(id);
-    console.log(data);
-    const location = useLocation()
-    console.log(location.search);
-
+    const price = formatValue(data?.price);
     return (
         <>
             <Header />
@@ -92,7 +83,7 @@ export default function Product(id: number) {
                         <div>
                             <span>Categoria</span>
                             <h2>{data?.product_name}</h2>
-                            <span>{data?.price}</span>
+                            <span>{price}</span>
                             <p>{data?.gender}</p>
                             <div>
                                 <h3>descrição</h3>

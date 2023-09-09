@@ -3,14 +3,14 @@ const Image = require("../models/Image");
 
 module.exports = {
   async store(req, res) {
-    const { sku, cod_reference, product_name, description, price, inventary, gender, status_product, last_update_price } = req.body
+    const { sku, cod_reference, product_name, description, price, stock, gender } = req.body
     const product = await Product.create({
-      sku, cod_reference, product_name, description, price, inventary, gender, status_product, last_update_price,
+      sku, cod_reference, product_name, description, price, stock, gender
     });
 
     const img = req.files.map(file => ({ url: file.filename, product_id: product.id }));
     await Image.bulkCreate(img);
-    return res.json(product)
+    return res.json({product})
   },
   async index(req, res) {
     const product = await Product.findAll({
@@ -36,18 +36,19 @@ module.exports = {
   },
   async edit(req, res) {
     const { id } = req.params
-    const { sku, cod_reference, product_name, description, price, inventary, gender, status_product, last_update_price } = req.body
+    const { sku, cod_reference, product_name, description, price, stock, gender } = req.body
+
     const product = await Product.findOne({ id });
-    product.sku = sku,
-      product.cod_reference = cod_reference,
-      product.product_name = product_name,
-      product.description = description,
-      product.price = price,
-      product.inventary = inventary,
-      product.gender = gender,
-      product.status_product = status_product,
-      product.last_update_price = last_update_price
-  
+    if (product.price)
+      product.sku = sku,
+        product.cod_reference = cod_reference,
+        product.product_name = product_name,
+        product.description = description,
+        product.price = price,
+        product.stock = stock,
+        product.gender = gender,
+        product.status_product = product.stock == 0 ? false : true,
+        product.last_update_price = product.price != price ? new Date() : product.price
     const img = req.files.map(file => ({ url: file.filename }))
     await Image.bulkCreate(img, {
       updateOnDuplicate: ['url']

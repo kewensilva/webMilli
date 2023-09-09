@@ -8,7 +8,7 @@ class Product extends Model {
       product_name: DataTypes.STRING,
       description: DataTypes.STRING,
       price: DataTypes.FLOAT,
-      inventary: DataTypes.INTEGER,
+      stock: DataTypes.INTEGER,
       gender: DataTypes.STRING,
       status_product: DataTypes.BOOLEAN,
       last_update_price: DataTypes.DATE,
@@ -23,4 +23,4 @@ class Product extends Model {
   }
 }
 
-module.exports = Product;
+module.exports = Product; 

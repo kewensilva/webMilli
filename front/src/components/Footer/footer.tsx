@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { LogoIcon } from "../../assets/logo";
+// import { LogoIcon } from "../../assets/logo";
 
 import { LogoInstagram } from "../../assets/logoIntagram";
 import { LogoWhatsApp } from "../../assets/logoWhatsApp";
@@ -7,42 +7,36 @@ import { LogoFacebook } from "../../assets/logoFacebook";
 
 const TagFooter = styled.footer`
 background-color: var(--bg-header);
- margin-top: 80vh;
- position: relative;
-border-radius: 8px ;
-bottom: 0px;
+/* position: relative; */
+bottom: 0;
 color: #FFF;
-min-width: 300px;
-display: flex;
+min-width: 250px;
 justify-content: center;
-@media (min-width: 768px) {
-    padding: 20px 160px;   
-    border-radius: 8px;
-}
+left: 0;
 `;
 
 const ContainerFooter = styled.div`
 display: flex;
-width: 100vw;
+width: relative;
 background-color: var(--bg-header);
 flex-direction: column;
 `;
 
-// const FooterColumns = styled.section`
-//   list-style-type: none;
-//   padding: 0;
-//   margin: 0;
-//   `
+const FooterColumns = styled.section`
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  `
 const FooterTop = styled.section`
 display: flex;
 align-items: center;
 padding: 8px 0px;
 flex-wrap: wrap;
 justify-content: space-between;
+width: 100vw;
 border-bottom: 1px solid var(--text-dark);
-/* @media (min-width: 768px) {
-  width: 100vw;
-} */
+@media (min-width: 768px) {
+}
 `
 const FooterLinks = styled.span`
   display: flex;
@@ -72,7 +66,15 @@ const FooterBottom = styled.div`
     font-size: 24px;
   }
 `
+const getCurrentYear = () => {
+  const currentDate = new Date();
+  return currentDate.getFullYear();
+};
+
 export default function Footer() {
+  const currentYear = getCurrentYear();
+  // console.log(currentYear);
+
   return (
     <TagFooter>
       <ContainerFooter>
@@ -92,6 +94,9 @@ export default function Footer() {
             </a>
           </FooterLinks>
         </FooterTop>
+        <FooterColumns>
+          Rua da Saldanha Marinho <br /> Centro, Guarapuava - PR, 85035-160.
+        </FooterColumns>
         <FooterBottom>
           <span>&copy; 2023 - Milli Sapatilhas - CNPJ - 35.295.937/0001-16 </span>
         </FooterBottom>

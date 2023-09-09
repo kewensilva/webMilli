@@ -11,11 +11,9 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       sku: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       cod_reference: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       product_name: {
@@ -27,15 +25,12 @@ module.exports = {
       price: {
         type: Sequelize.FLOAT
       },
-      inventary: {
+      stock: {
         type: Sequelize.INTEGER
       },
       gender: {
         type: Sequelize.STRING
       },
-      // img: {
-      //   type: Sequelize.STRING
-      // },
       status_product: {
         type: Sequelize.BOOLEAN
       },

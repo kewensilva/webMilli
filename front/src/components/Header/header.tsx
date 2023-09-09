@@ -1,8 +1,6 @@
 "use client"
 import { styled } from "styled-components";
 
-// import { PrimaryInput, PrimaryInputSearchIcon } from "./primary-input";
-
 import { LogoIcon } from "../../assets/logo";
 import { MediaSocial } from "../social/media-social";
 
@@ -39,17 +37,14 @@ font-size: 24px;
 
 `;
 
+
 export default function Header() {
     return (
         <TagHeader>
-             <Logo href="#" >
+            <Logo href="#" >
                 <LogoIcon />
-            </Logo> 
-            <MediaSocial/>
-            {/* <HeaderMedias /> */}
-            {/* <div>
-                <PrimaryInputSearchIcon placeholder="Buscar Produtos" />
-            </div> */}
+            </Logo>
+            <MediaSocial />
         </TagHeader>
     )
 }

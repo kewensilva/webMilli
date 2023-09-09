@@ -19,9 +19,9 @@ routes.get('/age/:id', AgeGroupController.getAge);
 routes.put('/age/edit/:id', AgeGroupController.edit);
 routes.delete('/age/delete/:id', AgeGroupController.delete);
 
-routes.post('/register-product', upload.array('img', 5), ProductController.store);
+routes.post('/register-product', upload.array('img'), ProductController.store);
 routes.get('/products', ProductController.index);
-routes.put('/product/:id', upload.array('img', 5), ProductController.edit);
+routes.put('/edit-product/:id', upload.array('img'), ProductController.edit);
 routes.get('/product/:id', ProductController.getProduct);
 routes.delete('/product/:id', ProductController.delete);
 module.exports = routes; 

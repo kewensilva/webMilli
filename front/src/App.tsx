@@ -3,7 +3,7 @@ import Footer from './components/Footer/footer';
 import Header from './components/Header/header';
 import Content from './components/Content/content';
 import { FilterContextProvider } from './contexts/filter-context';
-import { FilterBar } from './components/Filter/filter-bar';
+// import { FilterBar } from './components/Filter/filter-bar';
 
 import { Outlet } from 'react-router-dom';
 import WelcomePage from './pages/WelcomePage';
@@ -16,7 +16,7 @@ function App() {
       <WelcomePage isOpen={open} setOpen={setOpen} />
       <FilterContextProvider>
         <Header />
-        <FilterBar />
+        {/* <FilterBar /> */}
         <Content />
         <Outlet />
         <Footer />
