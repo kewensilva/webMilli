@@ -12,15 +12,32 @@ const Container = styled.div`
 const MediaText = styled.text`
     color: #FFF;
     flex-wrap: wrap;
+    
 `
-
+const HeaderLinks = styled.span`
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  right: 20%;
+  flex-wrap: wrap;
+  block-size: 50px;
+  gap: 12px;
+`;
 export function MediaSocial() {
     return (
         <Container>
-            <MediaText>Redes Sociais</MediaText>
-            <LogoFacebook/>
-            <LogoInstagram/>
-            <LogoWhatsApp/> 
+            <MediaText> Redes Sociais</MediaText>
+            <HeaderLinks>
+                <a href="https://m.facebook.com/milli.guarapuava/">
+                    <LogoFacebook />
+                </a>
+                <a href="https://api.whatsapp.com/message/566GHU63OXSNI1?autoload=1&app_absent=0">
+                    <LogoWhatsApp />
+                </a>
+                <a href="https://www.instagram.com/milli.guarapuava/?ref=journal.revou.co">
+                    <LogoInstagram />
+                </a>
+            </HeaderLinks>
         </Container>
     )
 }
