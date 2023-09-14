@@ -1,4 +1,3 @@
-"use client"
 import { styled } from "styled-components";
 
 import { LogoIcon } from "../../assets/logo";
@@ -41,7 +40,7 @@ font-size: 24px;
 export default function Header() {
     return (
         <TagHeader>
-            <Logo href="#" >
+            <Logo href="/" >
                 <LogoIcon />
             </Logo>
             <MediaSocial />
