@@ -5,6 +5,7 @@ import { useProduct } from "../hooks/useProduct"
 import Header from "../components/Header/header"
 import Footer from "../components/Footer/footer"
 import { formatValue } from "../utils/formatPrice"
+import { Products } from "../types/products-response"
 
 const Container = styled.div`
 display: flex;
@@ -69,9 +70,15 @@ section {
 }
 `
 
-export default function Product(id) {
-    const { data, urlimg } = useProduct(id);
-    const price = formatValue(data?.price);
+export default function Product() {
+    const { data, urlimg } = useProduct();
+    const price = data ? formatValue(data?.price) : '';
+    const imageUrls = data?.images instanceof Array
+        ? data.images.map((url: any) => urlimg + url.url)
+        : [];
+    console.log(imageUrls);
+
+
     return (
         <>
             <Header />
@@ -79,7 +86,7 @@ export default function Product(id) {
                 <Container>
                     <BackBtn />
                     <section>
-                        <img src={data?.images.map(url => urlimg + url.url)} />
+                        <img src={imageUrls[0]} alt="Descrição da imagem" />
                         <div>
                             <span>Categoria</span>
                             <h2>{data?.product_name}</h2>

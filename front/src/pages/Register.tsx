@@ -34,7 +34,10 @@ const Container = styled.div`
         border: none;
 
     }
+
 `
+
+type FormValues = any;
 
 export default function Register() {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -51,12 +54,12 @@ export default function Register() {
         try {
             const response = await fetch('http://localhost:3333/register-product/', {
                 method: 'POST',
-                body: formData, 
+                body: formData,
             });
 
             if (response.ok) {
                 console.log('Produto registrado com sucesso!');
-                
+
             } else {
                 console.error('Erro ao registrar produto:', response.status);
             }
@@ -133,7 +136,7 @@ export default function Register() {
                     </select>
                 </div>
                 <div className="form">
-                    <button type="submit" onClick={() => handleSubmit(onSubmit)()}>Salvar</button>
+                    <button type="submit" onClick={() => handleSubmit(onSubmit)}>Salvar</button>
                 </div>
             </Container>
             <Footer />

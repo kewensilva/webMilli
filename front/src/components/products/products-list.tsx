@@ -9,24 +9,25 @@ const ListContainer = styled.div`
   max-width: 100%;
   margin-top: 32px;
 
-` 
+`
 
 export function ProductsList() {
 
   const { data } = useProducts();
-  
+
+
   return (
 
     <ListContainer>
-      {data?.data?.data?.product.map(prod =>
+      {data?.data?.data?.product.map((prod: any) =>
         <ProductCard
           key={prod.id}
           title={prod.product_name}
           price={prod.price}
           gender={prod.gender}
-          img={data.urlimg + prod.images.map(url => url.url)}
+          img={data.urlimg + prod.images.map((url: any) => url.url)}
           id={prod.id}
-          
+
         />)}
     </ListContainer>
 

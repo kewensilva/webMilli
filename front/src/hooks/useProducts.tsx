@@ -1,12 +1,12 @@
-import { ProductsFetchResponse } from "../types/products-response";
+import { Product, ProductsFetchResponse } from "../types/products-response";
 import { useQuery } from "@tanstack/react-query";
 import axios, { AxiosPromise } from "axios";
-import { useFilter } from "./useFilter";
-import { FilterTypeEnum } from "../types/filter-type";
+// import { useFilter } from "./useFilter";
+// import { FilterTypeEnum } from "../types/filter-type";
 
 
 
-const fetcher = (): AxiosPromise<ProductsFetchResponse> => {
+const fetcher = (): AxiosPromise<ProductsFetchResponse<Product>> => {
   return axios.get(import.meta.env.VITE_URL_API)
 }
 
@@ -22,6 +22,8 @@ export function useProducts() {
   const urlimg = import.meta.env.VITE_REACT_APP_LINK_API
   return {
 
-    data: { data, urlimg }
+    data: { data
+      
+      , urlimg }
   }
 }

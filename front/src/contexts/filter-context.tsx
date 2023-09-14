@@ -3,7 +3,7 @@ import { ReactNode, createContext, useState } from "react"
 
 export const FilterContext = createContext({
   type: FilterTypeEnum.all,
-  setType: (value: FilterTypeEnum) => { }
+  setType: (_value: FilterTypeEnum) => { }
 })
 
 interface ProviderProps {

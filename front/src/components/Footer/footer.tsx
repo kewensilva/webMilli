@@ -66,14 +66,8 @@ const FooterBottom = styled.div`
     font-size: 24px;
   }
 `
-const getCurrentYear = () => {
-  const currentDate = new Date();
-  return currentDate.getFullYear();
-};
-
 export default function Footer() {
-  const currentYear = getCurrentYear();
-  // console.log(currentYear);
+
 
   return (
     <TagFooter>
@@ -95,7 +89,7 @@ export default function Footer() {
           </FooterLinks>
         </FooterTop>
         <FooterColumns>
-          Rua da Saldanha Marinho <br /> Centro, Guarapuava - PR, 85035-160.
+          Saldanha Marinho, 1616 Galeria Dipp - Loja 09 <br /> Centro, Guarapuava - PR, 85035-160.
         </FooterColumns>
         <FooterBottom>
           <span>&copy; 2023 - Milli Sapatilhas - CNPJ - 35.295.937/0001-16 </span>

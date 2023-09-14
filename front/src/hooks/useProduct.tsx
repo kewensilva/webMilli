@@ -3,7 +3,7 @@ import axios, { AxiosPromise } from "axios";
 import { ProductFetchResponse } from "../types/products-response";
 import { useLocation } from "react-router-dom";
 
-const fetcher = (id): AxiosPromise<ProductFetchResponse> => {
+const fetcher = (id: string | undefined): AxiosPromise<ProductFetchResponse> => {
     return axios.get(import.meta.env.VITE_URL_PROD + `${id}`)
 }
 

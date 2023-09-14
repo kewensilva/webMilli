@@ -1,4 +1,4 @@
-import { useLocation, useNavigate, useNavigation, useRoutes } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 import { formatValue } from "../../utils/formatPrice";
 
@@ -7,6 +7,7 @@ interface ProductCardProps {
   price: number,
   img: string,
   id: number,
+  gender: string,
 }
 
 export const Card = styled.div`
@@ -49,10 +50,10 @@ background: #DCE2E6;
 `;
 
 export function ProductCard(props: ProductCardProps) {
- 
+
 
   const price = formatValue(props.price)
-  
+
   const router = useNavigate();
   const handleNavigate = () => {
     router("product/" + props.id)

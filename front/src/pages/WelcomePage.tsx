@@ -21,13 +21,17 @@ const Container = styled.div`
 const Content = styled.div`
     width: 50vw;
     border-radius: 8px;
-    padding: 250px 550px;
+    padding: 350px 550px;
     position: fixed;
     top: 20%;
     left: 20%;
     background-color:#d1d1d1;
     border-radius: 12px;
     animation: drop 2s linear;
+    background-image: url('./welcome.jpg');
+    > img {
+
+    }
 `
 const Btn = styled.button`
     border: none;
@@ -54,7 +58,7 @@ export default function WelcomePage({ isOpen, setOpen }: IModal) {
 
     if (isOpen) {
         return (
-            <Container onClick={setOpen.bind(this, false)}>
+            <Container onClick={setOpen.bind(WelcomePage, false)}>
                 <Content onClick={(e) => e.stopPropagation()}>
                     <Title>Conheça as Novidades!!!</Title>
                     <Btn onClick={() => setOpen(!isOpen)}>
