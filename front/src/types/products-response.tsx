@@ -1,5 +1,5 @@
 
-export interface Products {
+export interface Product {
   id: string,
   sku: string,
   cod_reference: string,
@@ -15,15 +15,15 @@ export interface Products {
   url: string
 }
 
-export interface ProductsFetchResponse<Products> {
+export interface ProductsFetchResponse<Product> {
 
-  product: Products[]
+  product: Product[]
 
 }
 
 export interface ProductFetchResponse {
-  product: Products,
-  prodImg: Products[]
+  product: Product,
+  prodImg: Product[]
 
 }
 

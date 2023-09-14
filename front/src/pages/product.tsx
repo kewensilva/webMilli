@@ -5,7 +5,6 @@ import { useProduct } from "../hooks/useProduct"
 import Header from "../components/Header/header"
 import Footer from "../components/Footer/footer"
 import { formatValue } from "../utils/formatPrice"
-import { Products } from "../types/products-response"
 
 const Container = styled.div`
 display: flex;
