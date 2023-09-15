@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require("cors");
 const path = require("path");
 const routes = require('./routes');
+const PORT = process.env.PORT || 3000;
 
 require("./database");
 
@@ -19,5 +20,6 @@ app.use(routes);
 app.use('/files', express.static(__dirname + '/public' + '/uploads'));
 
 
-app.listen( 3000||process.env.PORT);
-console.log("server iniciado! na porta:" +process.env.PORT);
+app.listen(PORT, () => {
+  console.log("server iniciado! na porta:" + process.env.PORT);
+});
