@@ -8,7 +8,7 @@ const Image = require('../models/Image');
 const AgeGroup = require('../models/AgeGroup');
 
 
-const connection = new Sequelize(configdb);
+const connection = new Sequelize(`mysql://uviim7fkex3vakjf:qv90PlZzQ7uGUKzIeD5i@b2e4p9gboreceylibga8-mysql.services.clever-cloud.com:3306/b2e4p9gboreceylibga8`);
 
 Product.init(connection);
 Category.init(connection);
