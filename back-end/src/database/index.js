@@ -8,7 +8,7 @@ const Image = require('../models/Image');
 const AgeGroup = require('../models/AgeGroup');
 
 
-const connection = new Sequelize(configdb);
+const connection = new Sequelize(process.env.DB_CONNECTION);
 
 Product.init(connection);
 Category.init(connection);
