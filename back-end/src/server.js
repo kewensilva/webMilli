@@ -19,5 +19,5 @@ app.use(routes);
 app.use('/files', express.static(__dirname + '/public' + '/uploads'));
 
 
-app.listen(process.env.PORT);
+app.listen( 3000||process.env.PORT);
 console.log("server iniciado! na porta:" +process.env.PORT);
