@@ -8,6 +8,7 @@ module.exports = {
   "port": process.env.DB_PORT,
   "dialect": process.env.DB_DIALECT,
   "dialectModule": process.env.DB_DIALECT2,
+  "rejectUnauthorized": false,
   define: {
     timestamps: true,
     underscored: true
