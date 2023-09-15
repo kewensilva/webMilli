@@ -7,10 +7,9 @@
     "node": "18.x"
   },
   "scripts": {
-    "start": "./src/server.js",
     "dev": "nodemon src/server.js",
     "build": "tsup src",
-    "prod": "node dist/server.js"
+    "start": "node dist/server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
