@@ -7,13 +7,6 @@ module.exports = {
   "host": process.env.DB_HOST,
   "port": process.env.DB_PORT,
   "dialect": process.env.DB_DIALECT,
-  "dialectModule": process.env.DB_DIALECT2,
-  "rejectUnauthorized": false,
-  dialectOptions: {
-    socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-    supportBigNumbers: true,
-    bigNumberStrings: true
-  },
   define: {
     timestamps: true,
     underscored: true
