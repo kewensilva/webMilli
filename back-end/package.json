@@ -8,8 +8,8 @@
   },
   "scripts": {
     "dev": "nodemon src/server.js",
-    "build": "tsup src",
     "start": "node dist/server.js",
+    "build": "tsup src",
     "deploy": "sequelize db:create && sequelize db:migrate && vercel --prod"
   },
   "dependencies": {
