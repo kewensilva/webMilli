@@ -8,7 +8,6 @@ const Image = require('../models/Image');
 const AgeGroup = require('../models/AgeGroup');
 const mysql = require('mysql2');
 
-// Create a connection to the database
 const conn = mysql.createConnection({
     uri:process.env.DB_CONNECTION
 });
