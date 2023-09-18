@@ -13,7 +13,6 @@ const conn = mysql.createConnection({
     uri:process.env.DB_CONNECTION
 });
 
-// Attempt to connect
 conn.connect(function(err) {
   if (err) {
     console.error('Error connecting to the database:', err);
