@@ -8,11 +8,16 @@
     ],
     "routes": [
         {
+            "src": "/(.*)",
+            "dest": "src/server.js",
             "src": "/uploads/(.*)",
-            "dest": "/src/public/uploads/*"
+            "dest": "/src/public/uploads/$1"
         },
         {
             "handle": "filesystem"
         }
+    ],
+    "files": [
+        "src/public/uploads/**/*"
     ]
 }
