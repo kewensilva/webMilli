@@ -16,7 +16,7 @@ app.use(function (req, res, next) {
   next();
 });
 app.use(routes);
-app.use('/files', express.static(__dirname + '/imagens'+'/uploads'));
+app.use('/files', express.static(__dirname + '/public'+'/uploads'));
 
 
 app.listen(PORT, () => {
