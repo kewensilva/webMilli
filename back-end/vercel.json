@@ -13,9 +13,6 @@
             "headers": {
                 "cache-control": "public, max-age=3600"
             }
-        },
-        {
-            "handle": "@vercel/node"
         }
     ]
 }
