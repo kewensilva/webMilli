@@ -15,6 +15,14 @@
         },
         {
             "handle": "filesystem"
+        },
+        {
+            "rewrites": [
+                {
+                    "source": "/(.*)",
+                    "destination": "/"
+                }
+            ]
         }
     ]
 }
