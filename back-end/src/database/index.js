@@ -8,9 +8,7 @@ const Image = require('../models/Image');
 const AgeGroup = require('../models/AgeGroup');
 const mysql = require('mysql2');
 
-const conn = mysql.createConnection({
-    uri:process.env.DB_CONNECTION
-});
+const conn = mysql.createConnection({uri:process.env.DB_CONNECTION})
 
 conn.connect(function(err) {
   if (err) {

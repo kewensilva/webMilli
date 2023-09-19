@@ -10,7 +10,7 @@
         {
             "src": "/(.*)",
             "dest": "src/server.js",
-            "src": "/uploads/(.*)",
+            "src": "src/public/uploads/(.*)",
             "dest": "/src/public/uploads/$1"
         },
         {
