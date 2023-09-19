@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "nodemon src/server.js",
     "start": "node dist/server.js",
+    "vercel-build":"yarn sequelize db:migrate",
     "build": "tsup src",
     "deploy": "sequelize db:create && sequelize db:migrate && vercel --prod"
   },
