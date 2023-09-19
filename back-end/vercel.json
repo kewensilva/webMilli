@@ -13,15 +13,15 @@
             "dest": "src/public/uploads/$1"
         },
         {
-            "handle": "filesystem"
-        },
-        {
             "rewrites": [
                 {
                     "source": "/(.*)",
                     "destination": "/"
                 }
             ]
+        },
+        {
+            "handle": "filesystem"
         }
     ]
 }
