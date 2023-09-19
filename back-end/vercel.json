@@ -1,13 +1,16 @@
 {
     "version": 2,
-    "builds": {
-        "src": "*.js",
-        "use": "@vercel/node"
-    },
-    "routes": [
+    "builds": [
+        { "src": "database.sqlite", "use": "@vercel/static" },
+        { "src": ".sequelizerc", "use": "@vercel/static" },
+        { "src": "package.json", "use": "@vercel/static" },
+        { "src": "/src/**/*", "use": "@vercel/static" },
+        { "src": "/src/*", "use": "@vercel/node" }
+    ],
+    "rewrites": [
         {
-            "src": "/(.*)",
-            "dest": "/server.js"
+            "source": "/src/*",
+            "destination": "/src/serve.js"
         }
     ]
-}
+  }
