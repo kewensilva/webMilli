@@ -1,16 +1,64 @@
+// const multer = require("multer");
 const Product = require("../models/Product");
 const Image = require("../models/Image");
+const BackBlazeB2 = require("backblaze-b2");
+const dotenv = require("dotenv");
+dotenv.config();
+
+
+
+const b2 = new BackBlazeB2({
+  applicationKeyId: process.env.KEY_ID,
+  applicationKey: process.env.KEY
+});
 
 module.exports = {
-  async store(req, res) {
-    const { sku, cod_reference, product_name, description, price, stock, gender } = req.body
-    const product = await Product.create({
-      sku, cod_reference, product_name, description, price, stock, gender
-    });
+  async store(req, res, next) {
+    try {
+      const auth = await b2.authorize();
+      const { downloadUrl } = auth.data;
+      const resp = await b2.getUploadUrl({ bucketId: process.env.BUCKET_ID });
+      const { authorizationToken, uploadUrl } = resp.data;
+      const urls = [];
 
-    const img = req.files.map(file => ({ url: file.filename, product_id: product.id }));
-    await Image.bulkCreate(img);
-    return res.json({product})
+      const { sku, cod_reference, product_name, description, price, stock, gender } = req.body;
+
+      const product = await Product.create({
+        sku,
+        cod_reference,
+        product_name,
+        description,
+        price,
+        stock,
+        gender,
+      });
+
+      const uploadsPromises = [];
+
+      for (const file of req.files) {
+        const img2 = `${Date.now()}${file.originalname}`; // Nome único para cada imagem
+        const img = img2.replace(/\s/g, '')
+        const params = {
+          uploadUrl,
+          uploadAuthToken: authorizationToken,
+          fileName: `uploads/${img}`,
+          data: file.buffer,
+        };
+
+        const namefile = await b2.uploadFile(params);
+        const url = `${downloadUrl}/file/${process.env.BUCKET_NAME}/${namefile.data.fileName}`;
+        urls.push(url);
+
+        const image = await Image.create({
+          product_id: product.id,
+          url: url,
+        });
+      }
+
+      return res.json({ product });
+    } catch (error) {
+      next(error);
+    }
   },
   async index(req, res) {
     const product = await Product.findAll({
