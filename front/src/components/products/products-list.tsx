@@ -19,17 +19,22 @@ export function ProductsList() {
   return (
 
     <ListContainer>
-      {data?.data?.data?.product.map((prod: any) =>
-        <ProductCard
-          key={prod.id}
-          title={prod.product_name}
-          price={prod.price}
-          gender={prod.gender}
-          img={data.urlimg + prod.images.map((url: any) => url.url)}
-          id={prod.id}
+      {data?.data?.data?.product.map((prod: any) => {
+        const firstImage = prod.images[0];
+        const imageUrl = firstImage ? firstImage.url : null;
+        
 
-        />)}
+        return (
+          <ProductCard
+            key={prod.id}
+            title={prod.product_name}
+            price={prod.price}
+            gender={prod.gender}
+            img={imageUrl} 
+            id={prod.id}
+          />
+        );
+      })}
     </ListContainer>
-
-  )
+  );
 }

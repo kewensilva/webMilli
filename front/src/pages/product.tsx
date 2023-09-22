@@ -70,12 +70,15 @@ section {
 `
 
 export default function Product() {
-    const { data, urlimg } = useProduct();
+    const { data } = useProduct();
     const price = data ? formatValue(data?.price) : '';
     const imageUrls = data?.images instanceof Array
-        ? data.images.map((url: any) => urlimg + url.url)
+        ? data.images.map((imageObject) => {
+            // Suponha que a propriedade 'url' em imageObject contenha a URL completa da imagem
+            const imageUrl = imageObject.url;
+            return imageUrl;
+        })
         : [];
-    console.log(imageUrls);
 
 
     return (
@@ -86,7 +89,9 @@ export default function Product() {
                     <BackBtn />
                     <section>
                         <img src={imageUrls[0]} alt="Descrição da imagem" />
-                        <div>
+                        <div>{imageUrls.map((imageUrl, index) => (
+                            <img key={index} src={imageUrl} alt={`Imagem ${index + 1}`} />
+                        ))}
                             <span>Categoria</span>
                             <h2>{data?.product_name}</h2>
                             <span>{price}</span>

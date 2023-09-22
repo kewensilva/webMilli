@@ -52,7 +52,7 @@ export default function Register() {
         formData.append('stock', data.stock);
 
         try {
-            const response = await fetch('http://localhost:3333/register-product/', {
+            const response = await fetch(import.meta.env.VITE_URL_POST_PROD, { 
                 method: 'POST',
                 body: formData,
             });

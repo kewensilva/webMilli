@@ -22,8 +22,6 @@ export function useProducts() {
   const urlimg = import.meta.env.VITE_REACT_APP_LINK_API
   return {
 
-    data: { data
-      
-      , urlimg }
+    data: { data, urlimg }
   }
 }

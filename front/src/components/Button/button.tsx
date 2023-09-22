@@ -19,7 +19,7 @@ const Button = styled.button`
 export function BackBtn() {
     const router = useNavigate();
     return (
-        <Button onClick={() => router(-1)}>
+        <Button onClick={() => router('/')}>
             <LogoBack />
             Voltar
         </Button>

@@ -73,7 +73,7 @@ export default function Footer() {
     <TagFooter>
       <ContainerFooter>
         <FooterTop>
-          <FooterLogo href="#">
+          <FooterLogo href="/">
             <img src="/Milli_botao.png" />
           </FooterLogo>
           <FooterLinks>

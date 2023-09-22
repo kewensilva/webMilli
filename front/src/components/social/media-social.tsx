@@ -4,14 +4,15 @@ import { LogoInstagram } from "../../assets/logoIntagram";
 import { LogoWhatsApp } from "../../assets/logoWhatsApp";
 
 const Container = styled.div`
-    /* position: relative; */
-    padding: 2em 20em ;
-    /* outline: 2px solid #FFF; */
+    position: relative;
+    display: flex;
+    padding: 1em 20em ;
     margin: 0;
 `
-const MediaText = styled.text`
+const MediaText = styled.h4`
     color: #FFF;
     flex-wrap: wrap;
+    padding: 0;
     
 `
 const HeaderLinks = styled.span`
